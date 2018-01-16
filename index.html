@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>React</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link rel="stylesheet" type="text/css" media="screen" href="main.css" />-->
+  <script src="node_modules/react/umd/react.development.js"></script>
+  <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+</head>
+<body>
+  <div id="clock"></div>
+</body>
+<script>
+  window.onload = writeClock
+  setInterval((writeClock), 1000)
+
+  function writeClock() {
+    let currentTime = new Date();
+    const clock = React.createElement("div", null, "The time is: " + currentTime.toLocaleTimeString('en-US'))
+    ReactDOM.render(clock, document.getElementById("clock"))
+  }
+</script>
+</html>
